@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_disconnect_devices"
+        android:icon="@drawable/ic_baseline_bluetooth_disabled_24"
+        app:showAsAction="always"
+        android:title="@string/str_menu_disconnect_device"/>
+
+    <item
+        android:id="@+id/menu_search_devices"
+        android:icon="@drawable/ic_bluetooth_searching"
+        app:showAsAction="always"
+        android:title="@string/str_menu_search_device"/>
+
+    <item
+        android:id="@+id/menu_enable_bluetooth"
+        android:icon="@drawable/ic_bluetooth"
+        android:title="@string/str_bluetooth_on"
+        app:showAsAction="always" />
+
+</menu>

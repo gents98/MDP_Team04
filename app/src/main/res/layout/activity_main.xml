@@ -1,18 +1,252 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/xyTableCardView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="32dp"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintStart_toEndOf="@+id/mapView"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical">
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:id="@+id/xLabelTextView"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:text="X"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"/>
+
+                    <TextView
+                        android:id="@+id/yLabelTextView"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:text="Y"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_column="2"
+                        android:layout_weight="1"
+                        android:background="@drawable/border" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/xAxisTextView"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textSize="12sp"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:background="@drawable/border_white" />
+
+                    <TextView
+                        android:id="@+id/yAxisTextView"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textSize="12sp"
+                        android:layout_column="2"
+                        android:layout_weight="1"
+                        android:background="@drawable/border_white"/>
+
+
+                </TableRow>
+
+            </TableLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/timerCardView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="29dp"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintStart_toEndOf="@+id/mapView"
+            app:layout_constraintTop_toBottomOf="@+id/xyTableCardView">
+
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical" >
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:id="@+id/timerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:text="Timer"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_column="1"
+                        android:layout_weight="1"
+                        android:background="@drawable/border" />
+
+                    <Chronometer
+                        android:id="@+id/startTimer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textSize="12sp"
+                        android:layout_column="2"
+                        android:layout_weight="1" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <ToggleButton
+                        android:id="@+id/startTimerBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textOff="START"
+                        android:textOn="STOP"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:layout_span="2" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/exploreTypeCardView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintStart_toEndOf="@+id/mapView"
+            app:layout_constraintTop_toBottomOf="@+id/timerCardView">
+
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical" >
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:id="@+id/exploreTypeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:text="Type"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:background="@drawable/border" />
+
+
+
+                </TableRow>
+
+                <TableRow>
+                    <ToggleButton
+                        android:id="@+id/exploreTypeBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textOff="Image Exploration"
+                        android:textOn="Fastest Path"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:background="@android:drawable/btn_default" />
+                </TableRow>
+
+            </TableLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <view
+            android:id="@+id/mapView"
+            class="com.example.androidmdpapp.GridMap"
+            android:layout_width="475dp"
+            android:layout_height="552dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.039" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="false"
+        android:layout_marginTop="490dp"
+        app:tabMaxWidth="0dp"
+        app:tabGravity="fill"
+        app:tabMode="fixed">
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabsLayout"/>
+
+</RelativeLayout>
