@@ -3,6 +3,7 @@ package com.example.mdp_team04;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 case MESSAGE_WRITE:
                     byte[] buffer1 = (byte[]) message.obj;
                     String outputBuffer = new String(buffer1);
-                    FragmentMessage.addToAdapterSentMessages("Me: ", outputBuffer);
+                    FragMsg.addToAdapterSentMessages("Me: ", outputBuffer);
                     break;
                 case MESSAGE_READ:
                     String inputBuffer = (String) message.obj;
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                         running = false;
                         startTimerBtn.toggle();
                     }
-                    FragmentMessage.addToAdapterReceivedMessages(connectedDevice + ": ", inputBuffer);
+                    FragMsg.addToAdapterReceivedMessages(connectedDevice + ": ", inputBuffer);
                     break;
                 case MESSAGE_READ_STATUS:
                     String inputBufferStatus = (String) message.obj;
@@ -115,17 +116,17 @@ public class MainActivity extends AppCompatActivity {
                     if (inputArray.length > 5 && !inputBufferStatus.contains("STM")) {
                         int index = inputBufferStatus.indexOf("AN", inputBufferStatus.indexOf("AN") + 1);
                         inputBufferStatusExtra = inputBufferStatus.substring(index);
-                        inputBufferStatus = inputBufferStatus.substring(0,index);
+                        inputBufferStatus = inputBufferStatus.substring(0, index);
                         inputArray = inputBufferStatus.split("\\s*,\\s*");
                         inputArrayAdditional = inputBufferStatusExtra.split("\\s*,\\s*");
                     }
                     if (inputBufferStatus.startsWith("AN") && running) {
                         handleMessageRead(inputBufferStatus, inputArray);
-                        FragmentMessage.addToAdapterReceivedMessages(connectedDevice + ": ", inputBufferStatus);
+                        FragMsg.addToAdapterReceivedMessages(connectedDevice + ": ", inputBufferStatus);
                     }
                     if (inputBufferStatusExtra != null && inputBufferStatusExtra.startsWith("AN") && running) {
                         handleMessageRead(inputBufferStatusExtra, inputArrayAdditional);
-                        FragmentMessage.addToAdapterReceivedMessages(connectedDevice + ": ", inputBufferStatusExtra);
+                        FragMsg.addToAdapterReceivedMessages(connectedDevice + ": ", inputBufferStatusExtra);
                     }
                     break;
                 case MESSAGE_DEVICE_NAME:
@@ -145,13 +146,11 @@ public class MainActivity extends AppCompatActivity {
             startTimer.stop();
             running = false;
             startTimerBtn.toggle();
-        }
-        else if (inputBuffer.contains("StopFP") && running) {
+        } else if (inputBuffer.contains("StopFP") && running) {
             startTimer.stop();
             running = false;
             startTimerBtn.toggle();
-        }
-        else {
+        } else {
             gridMap.handleMessageReceive(inputArray);
         }
     }
@@ -199,8 +198,7 @@ public class MainActivity extends AppCompatActivity {
                         if (exploreTypeBtn.getText().equals("Image Exploration")) {
                             tempMsg += "StartIE";
                             BluetoothUtils.write(tempMsg.getBytes());
-                        }
-                        else if (exploreTypeBtn.getText().equals("Fastest Path")) {
+                        } else if (exploreTypeBtn.getText().equals("Fastest Path")) {
                             //tempMsg += "StartFP";
                             tempMsg = "STM," + "w";
                             BluetoothUtils.write(tempMsg.getBytes());
@@ -212,8 +210,7 @@ public class MainActivity extends AppCompatActivity {
                         if (exploreTypeBtn.getText().equals("Image Exploration")) {
                             tempMsg += "StopIE";
                             BluetoothUtils.write(tempMsg.getBytes());
-                        }
-                        else if (exploreTypeBtn.getText().equals("Fastest Path")) {
+                        } else if (exploreTypeBtn.getText().equals("Fastest Path")) {
                             tempMsg += "StopFP";
                             BluetoothUtils.write(tempMsg.getBytes());
                         }
@@ -265,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST);
         } else {
-            Intent intent = new Intent(context, DeviceListActivity.class);
+            Intent intent = new Intent(context, DeviceListProcess.class);
             startActivityForResult(intent, SELECT_DEVICE);
         }
         showLog("Exiting checkPermissions");
@@ -284,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == LOCATION_PERMISSION_REQUEST) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Intent intent = new Intent(context, DeviceListActivity.class);
+                Intent intent = new Intent(context, DeviceListProcess.class);
                 startActivityForResult(intent, SELECT_DEVICE);
             } else {
                 new AlertDialog.Builder(context)
@@ -311,6 +308,16 @@ public class MainActivity extends AppCompatActivity {
     private void enableBluetooth() {
         showLog("Entering enableBluetooth");
         if (!bluetoothAdapter.isEnabled()) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
             bluetoothAdapter.enable();
         }
 

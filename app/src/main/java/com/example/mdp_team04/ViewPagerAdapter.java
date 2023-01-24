@@ -15,13 +15,13 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
         switch (position) {
             case 0:
-                return new FragmentMessage();
+                return new FragMsg();
             case 1:
-                return new FragmentMap();
+                return new FragMap();
             case 2:
-                return new FragmentControl();
+                return new FragControl();
             default:
-                return new FragmentMessage();
+                return new FragMsg();
         }
     }
 

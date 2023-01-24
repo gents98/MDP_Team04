@@ -27,8 +27,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class FragMsg {
-}private ListView listViewSentMessages;
+public class FragMsg extends Fragment{
+private ListView listViewSentMessages;
     private ListView listViewReceivedMessages;
     private EditText edCreateMessage;
     private Button btnSendMessage;
