@@ -5,10 +5,13 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
 
 import com.example.mdp_team04.MainActivity;
 
@@ -198,6 +201,7 @@ public class BluetoothUtils {
 
         public void run() {
             try {
+
                 socket.connect();
             } catch (IOException e) {
                 showLog("Connect->Run: " + e.toString());
