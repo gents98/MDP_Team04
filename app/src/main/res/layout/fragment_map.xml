@@ -7,77 +7,77 @@
     tools:context=".FragMap">
 
     <ToggleButton
-        android:id="@+id/northObstacleToggleBtn"
-        android:layout_width="45dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:drawableTop="@drawable/ic_north_obstacle"
-        android:textOff="PLOT"
-        android:textOn="CANCEL"
-        android:textSize="0sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ToggleButton
         android:id="@+id/southObstacleToggleBtn"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:scaleType="centerCrop"
+        android:layout_marginTop="84dp"
         android:drawableTop="@drawable/ic_south_obstacle"
-        android:textOff="PLOT"
-        android:textOn="CANCEL"
-        android:textSize="0sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
-        app:layout_constraintStart_toEndOf="@+id/northObstacleToggleBtn"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ToggleButton
-        android:id="@+id/westObstacleToggleBtn"
-        android:layout_width="45dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:scaleType="centerCrop"
-        android:drawableTop="@drawable/ic_west_obstacle"
         android:textOff="PLOT"
         android:textOn="CANCEL"
         android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
-        app:layout_constraintStart_toEndOf="@id/southObstacleToggleBtn"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toEndOf="@+id/northObstacleToggleBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton
         android:id="@+id/eastObstacleToggleBtn"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:scaleType="centerCrop"
+        android:layout_marginTop="84dp"
         android:drawableTop="@drawable/ic_east_obstacle"
+        android:scaleType="centerCrop"
         android:textOff="PLOT"
         android:textOn="CANCEL"
         android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintHorizontal_bias="0.073"
         app:layout_constraintStart_toEndOf="@id/westObstacleToggleBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/northObstacleToggleBtn"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:drawableTop="@drawable/ic_north_obstacle"
+        android:textOff="PLOT"
+        android:textOn="CANCEL"
+        android:textSize="0sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton
         android:id="@+id/clearToggleBtn"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:scaleType="centerCrop"
+        android:layout_marginTop="84dp"
         android:drawableTop="@drawable/ic_baseline_clear_24"
+        android:scaleType="centerCrop"
         android:textOff="REMOVE"
         android:textOn="CANCEL"
         android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toEndOf="@+id/eastObstacleToggleBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/westObstacleToggleBtn"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:drawableTop="@drawable/ic_west_obstacle"
+        android:scaleType="centerCrop"
+        android:textOff="PLOT"
+        android:textOn="CANCEL"
+        android:textSize="0sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toEndOf="@id/southObstacleToggleBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton

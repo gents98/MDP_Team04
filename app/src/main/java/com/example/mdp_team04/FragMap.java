@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,6 +20,8 @@ public class FragMap extends Fragment {
     Button resetMapBtn, updateMapBtn;
     ToggleButton setStartPointToggleBtn, setEditToggleBtn, clearToggleBtn, northObstacleToggleBtn, southObstacleToggleBtn, eastObstacleToggleBtn, westObstacleToggleBtn;
     GridMap gridMap;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,6 +110,7 @@ public class FragMap extends Fragment {
                 showLog("Exiting northObstacleToggleBtn");
             }
         });
+
 
         southObstacleToggleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
