@@ -1,5 +1,6 @@
 package com.example.mdp_team04;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
@@ -10,8 +11,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-
+import android.Manifest;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.mdp_team04.MainActivity;
 
@@ -23,14 +25,14 @@ import java.util.UUID;
 public class BluetoothUtils {
     private static BluetoothUtils instance;
     private static final String TAG = "BluetoothUtils";
-
+    private static final int REQUEST_BLUETOOTH_ADMIN = 1;
     private Context context;
     private final Handler handler;
     private BluetoothAdapter bluetoothAdapter;
     private ConnectThread connectThread;
     private AcceptThread acceptThread;
     private static ConnectedThread connectedThread;
-
+    private Activity activity;
     private final UUID APP_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     private final String APP_NAME = "AndroidMDPApp";
 
@@ -40,10 +42,16 @@ public class BluetoothUtils {
     public static final int STATE_CONNECTED = 3;
 
     private static int state;
+    private static final int REQUEST_CODE = 1;
+
+
+
+
 
     public BluetoothUtils(Context context, Handler handler) {
         this.context = context;
         this.handler = handler;
+        this.activity = activity;
 
         state = STATE_NONE;
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -125,14 +133,22 @@ public class BluetoothUtils {
 //        connThread.write(buffer);
 //    }
 
+
     private class AcceptThread extends Thread {
         private BluetoothServerSocket serverSocket;
 
         public AcceptThread() {
             BluetoothServerSocket tmp = null;
             try {
+                if (ContextCompat.checkSelfPermission(activity, Manifest.permission.BLUETOOTH_ADMIN)
+                        != PackageManager.PERMISSION_GRANTED) {
 
-                tmp = bluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord(APP_NAME, APP_UUID);
+                    ActivityCompat.requestPermissions(activity,
+                            new String[]{Manifest.permission.BLUETOOTH_ADMIN},
+                            REQUEST_BLUETOOTH_ADMIN);
+                } else {
+                    tmp = bluetoothAdapter.listenUsingRfcommWithServiceRecord(APP_NAME, APP_UUID);
+                }
             } catch (IOException e) {
                 showLog("Accept->Constructor: " + e.toString());
             }
@@ -189,7 +205,17 @@ public class BluetoothUtils {
 
             BluetoothSocket tmp = null;
             try {
-                tmp = device.createInsecureRfcommSocketToServiceRecord(APP_UUID);
+
+                if (ContextCompat.checkSelfPermission(activity, Manifest.permission.BLUETOOTH_ADMIN)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    ActivityCompat.requestPermissions(activity,
+                            new String[]{Manifest.permission.BLUETOOTH_ADMIN},
+                            REQUEST_BLUETOOTH_ADMIN);
+                } else {
+                    tmp = device.createInsecureRfcommSocketToServiceRecord(APP_UUID);
+                }
+
             } catch (IOException e) {
                 showLog("Connect->Constructor: " + e.toString());
             }
@@ -202,7 +228,16 @@ public class BluetoothUtils {
         public void run() {
             try {
 
-                socket.connect();
+                if (ContextCompat.checkSelfPermission(activity, Manifest.permission.BLUETOOTH_ADMIN)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    ActivityCompat.requestPermissions(activity,
+                            new String[]{Manifest.permission.BLUETOOTH_ADMIN},
+                            REQUEST_BLUETOOTH_ADMIN);
+                } else {
+                    socket.connect();
+                }
+
             } catch (IOException e) {
                 showLog("Connect->Run: " + e.toString());
                 try {
@@ -333,7 +368,17 @@ public class BluetoothUtils {
 
         Message message = handler.obtainMessage(MainActivity.MESSAGE_DEVICE_NAME);
         Bundle bundle = new Bundle();
-        bundle.putString(MainActivity.DEVICE_NAME, device.getName());
+
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.BLUETOOTH_ADMIN)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(activity,
+                    new String[]{Manifest.permission.BLUETOOTH_ADMIN},
+                    REQUEST_BLUETOOTH_ADMIN);
+        } else {
+            bundle.putString(MainActivity.DEVICE_NAME, device.getName());
+        }
+
         message.setData(bundle);
         handler.sendMessage(message);
 
