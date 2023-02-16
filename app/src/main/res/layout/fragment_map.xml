@@ -10,14 +10,14 @@
         android:id="@+id/westObstacleToggleBtn"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="92dp"
         android:drawableTop="@drawable/ic_west_obstacle"
         android:scaleType="centerCrop"
         android:textOff="PLOT"
         android:textOn="CANCEL"
         android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,14 +25,14 @@
         android:id="@+id/eastObstacleToggleBtn"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="92dp"
         android:drawableTop="@drawable/ic_east_obstacle"
         android:scaleType="centerCrop"
         android:textOff="PLOT"
         android:textOn="CANCEL"
         android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toEndOf="@id/westObstacleToggleBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,13 +40,13 @@
         android:id="@+id/northObstacleToggleBtn"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:drawableTop="@drawable/ic_north_obstacle"
         android:textOff="PLOT"
         android:textOn="CANCEL"
         android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,13 +54,13 @@
         android:id="@+id/clearToggleBtn"
         android:layout_width="93dp"
         android:layout_height="70dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="64dp"
         android:scaleType="centerCrop"
         android:textOff="DELETE"
 
         android:textOn="CANCEL"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toEndOf="@+id/eastObstacleToggleBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,14 +68,14 @@
         android:id="@+id/southObstacleToggleBtn"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="64dp"
         android:drawableTop="@drawable/ic_south_obstacle"
         android:scaleType="centerCrop"
         android:textOff="PLOT"
         android:textOn="CANCEL"
         android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintHorizontal_bias="0.178"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/northObstacleToggleBtn" />
 

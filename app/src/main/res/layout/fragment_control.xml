@@ -7,43 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".FragControl">
 
-<!--    <Button-->
-<!--        android:id="@+id/calibrateButton"-->
-<!--        android:layout_width="157dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="44dp"-->
-<!--        android:clickable="true"-->
-<!--        android:gravity="center"-->
-<!--        android:text="CALIBRATE"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textSize="12sp"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/movementStatusTV"-->
-<!--        app:layout_constraintHorizontal_bias="0.272"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/movementStatusTV"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/movementStatusTV" />-->
-
-<!--    <Switch-->
-<!--        android:id="@+id/autoManualSwitch"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginLeft="16dp"-->
-<!--        android:layout_marginTop="12dp"-->
-<!--        android:splitTrack="false"-->
-<!--        android:text="MANUAL"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.144"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/southImageBtn" />-->
 
     <ImageButton
         android:id="@+id/southEastImageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="196dp"
         android:src="@drawable/ic_baseline_south_east_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintHorizontal_bias="0.322"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,10 +23,10 @@
         android:id="@+id/southImageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="196dp"
         android:src="@drawable/ic_baseline_south_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,10 +34,10 @@
         android:id="@+id/southWestImageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="196dp"
         android:src="@drawable/ic_baseline_south_west_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,10 +45,10 @@
         android:id="@+id/eastImageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="124dp"
         android:src="@drawable/ic_baseline_east_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintHorizontal_bias="0.322"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,10 +56,10 @@
         android:id="@+id/westImageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="124dp"
         android:src="@drawable/ic_baseline_west_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,21 +67,22 @@
         android:id="@+id/northEastImageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/ic_baseline_north_east_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintHorizontal_bias="0.322"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageButton
         android:id="@+id/northWestImageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/ic_baseline_north_west_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -117,62 +90,12 @@
         android:id="@+id/northImageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/ic_baseline_north_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintHorizontal_bias="0.206"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-<!--    <TextView-->
-<!--        android:id="@+id/movementStatusTitleTV"-->
-<!--        android:layout_width="172dp"-->
-<!--        android:layout_height="35dp"-->
-<!--        android:layout_marginStart="28dp"-->
-<!--        android:layout_marginLeft="28dp"-->
-<!--        android:layout_marginTop="24dp"-->
-<!--        android:background="#4AFFCA28"-->
-<!--        android:gravity="center"-->
-<!--        android:text="Movement Status"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textStyle="italic"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.631"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/eastImageBtn"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        tools:ignore="MissingConstraints" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/movementStatusTitleTV"-->
-<!--        android:layout_width="172dp"-->
-<!--        android:layout_height="35dp"-->
-<!--        android:layout_marginStart="28dp"-->
-<!--        android:layout_marginLeft="28dp"-->
-<!--        android:layout_marginTop="24dp"-->
-<!--        android:background="#4AFFCA28"-->
-<!--        android:gravity="center"-->
-<!--        android:text="Movement Status"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textStyle="italic"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.631"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/rightImageBtn"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        tools:ignore="MissingConstraints" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/movementStatusTV"-->
-<!--        android:layout_width="172dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="60dp"-->
-<!--        android:background="#2A969494"-->
-<!--        android:gravity="center"-->
-<!--        android:text=""-->
-<!--        android:textSize="16sp"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/movementStatusTitleTV"-->
-<!--        app:layout_constraintHorizontal_bias="0.851"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/movementStatusTitleTV"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/movementStatusCardView"
@@ -186,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginLeft="40dp">
 
-        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center_vertical" >
@@ -195,37 +118,46 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
 
-                <TextView
-                    android:id="@+id/movementStatusTitleTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:text="Movement Status"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:background="@drawable/border" />
-
-
 
             </TableRow>
 
             <TableRow>
-                <TextView
-                    android:id="@+id/movementStatusTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="80dp"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:text=""
-                    android:textSize="18sp"
-                    android:textStyle="normal"
-                    android:layout_weight="1" />
+
             </TableRow>
 
         </TableLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/movementStatusTV"
+        android:layout_width="210dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Test"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/eastImageBtn"
+        app:layout_constraintTop_toBottomOf="@+id/movementStatusTitleTV" />
+
+    <TextView
+        android:id="@+id/movementStatusTitleTV"
+        android:layout_width="211dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="68dp"
+        android:layout_weight="1"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:text="Movement Status"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/northEastImageBtn"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
