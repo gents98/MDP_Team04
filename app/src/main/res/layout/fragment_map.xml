@@ -17,7 +17,7 @@
         android:textOn="CANCEL"
         android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +32,7 @@
         android:textOn="CANCEL"
         android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toEndOf="@id/westObstacleToggleBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,7 +68,7 @@
         android:id="@+id/southObstacleToggleBtn"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="68dp"
         android:drawableTop="@drawable/ic_south_obstacle"
         android:scaleType="centerCrop"
         android:textOff="PLOT"
@@ -80,11 +80,27 @@
         app:layout_constraintTop_toBottomOf="@+id/northObstacleToggleBtn" />
 
     <ToggleButton
+        android:id="@+id/setEditToggleBtn"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textOff="EDIT MAP"
+        android:textOn="CANCEL"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
         android:id="@+id/setStartPointToggleBtn"
         android:layout_width="120dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="96dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:textAlignment="center"
@@ -92,51 +108,34 @@
         android:textOn="CANCEL"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.707"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ToggleButton
-        android:id="@+id/setEditToggleBtn"
-        android:layout_width="120dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textOff="EDIT"
-        android:textOn="CANCEL"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.707"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/setEditToggleBtn" />
 
     <Button
         android:id="@+id/updateMapBtn"
-        android:layout_width="120dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="117dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="216dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="#4CAF50"
         android:text="UPDATE MAP"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.989"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toEndOf="@+id/setEditToggleBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/resetMapBtn"
-        android:layout_width="120dp"
+        android:layout_width="118dp"
         android:layout_height="70dp"
-        android:layout_marginTop="96dp"
+        android:backgroundTint="#E91E1E"
         android:text="RESET MAP"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toEndOf="@+id/setStartPointToggleBtn"
+        app:layout_constraintTop_toBottomOf="@+id/updateMapBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -111,12 +111,17 @@ public class DeviceListProcess extends AppCompatActivity {
                 if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
                     adapterAvailableDevices.add(device.getName() + "\n" + device.getAddress());
                 }
-            } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+            }
+            else if (BluetoothDevice.ACTION_ACL_CONNECTED.equals(action))
+            {
+
+            }
+            else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
                 progressScanDevices.setVisibility(View.GONE);
                 if (adapterAvailableDevices.getCount() == 0) {
-                    Toast.makeText(context, "No new devices found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "No new devices found!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Click on the device to start the chat", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Click on the device to connect!", Toast.LENGTH_SHORT).show();
                 }
             }
         }

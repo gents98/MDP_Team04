@@ -131,7 +131,6 @@ public class BluetoothUtils {
         public AcceptThread() {
             BluetoothServerSocket tmp = null;
             try {
-
                 tmp = bluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord(APP_NAME, APP_UUID);
             } catch (IOException e) {
                 showLog("Accept->Constructor: " + e.toString());

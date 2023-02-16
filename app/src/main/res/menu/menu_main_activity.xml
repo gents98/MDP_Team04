@@ -19,5 +19,4 @@
         android:icon="@drawable/ic_bluetooth"
         android:title="@string/str_bluetooth_on"
         app:showAsAction="always" />
-
 </menu>
