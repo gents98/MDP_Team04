@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private String connectedDevice;
 
     private static GridMap gridMap;
-    static TextView xAxisTextView, yAxisTextView;
+    static TextView xAxisTextView, yAxisTextView, statusTextView;
 
     private int[] tabIcons = {
             R.drawable.ic_baseline_message_24,
@@ -83,15 +83,19 @@ public class MainActivity extends AppCompatActivity {
                     switch (message.arg1) {
                         case BluetoothUtils.STATE_NONE:
                             setState("Not Connected");
+                            statusTextView.setText("Unavailable");
                             break;
                         case BluetoothUtils.STATE_LISTEN:
                             setState("Not Connected");
+                            statusTextView.setText("Unavailable");
                             break;
                         case BluetoothUtils.STATE_CONNECTING:
                             setState("Connecting...");
+                            statusTextView.setText("Connecting");
                             break;
                         case BluetoothUtils.STATE_CONNECTED:
                             setState("Connected: " + connectedDevice);
+                            statusTextView.setText("Device Available");
                             break;
                     }
                     break;
@@ -106,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                         startTimer.stop();
                         running = false;
                         startTimerBtn.toggle();
+                        statusTextView.setText("Timer Stopped");
                     }
                     FragMsg.addToAdapterReceivedMessages(connectedDevice + ": ", inputBuffer);
                     break;
@@ -147,10 +152,13 @@ public class MainActivity extends AppCompatActivity {
             startTimer.stop();
             running = false;
             startTimerBtn.toggle();
+            statusTextView.setText("IE Running");
+            showToast("IE Running");
         } else if (inputBuffer.contains("StopFP") && running) {
             startTimer.stop();
             running = false;
             startTimerBtn.toggle();
+            statusTextView.setText("FP Running");
         } else {
             gridMap.handleMessageReceive(inputArray);
         }
@@ -184,6 +192,9 @@ public class MainActivity extends AppCompatActivity {
         startTimerBtn = findViewById(R.id.startTimerBtn);
         startTimer = findViewById(R.id.startTimer);
         exploreTypeBtn = findViewById(R.id.exploreTypeBtn);
+
+        // Status
+        statusTextView = findViewById(R.id.statustextView);
         initStartTimer();
     }
 
@@ -198,10 +209,12 @@ public class MainActivity extends AppCompatActivity {
                     if (startTimerBtn.getText().equals("STOP")) {
                         if (exploreTypeBtn.getText().equals("Image Exploration")) {
                             tempMsg += "StartIE";
+                            statusTextView.setText("IE Running ...");
                             BluetoothUtils.write(tempMsg.getBytes());
                         } else if (exploreTypeBtn.getText().equals("Fastest Path")) {
                             //tempMsg += "StartFP";
                             tempMsg = "STM," + "w";
+                            statusTextView.setText("FP Running ...");
                             BluetoothUtils.write(tempMsg.getBytes());
                         }
                         startTimer.setBase(SystemClock.elapsedRealtime());

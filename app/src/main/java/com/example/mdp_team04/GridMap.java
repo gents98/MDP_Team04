@@ -44,6 +44,9 @@ public class GridMap extends View {
     private Paint obstacleDirectionColor = new Paint();
     private Paint fastestPathColor = new Paint();
 
+    private Paint textSize = new Paint();
+
+    private int obscounter = 0;
     private static String robotDirection = "None";
     private static int[] startCoord = new int[]{-1, -1};
     private static int[] curCoord = new int[]{-1, -1};
@@ -124,10 +127,14 @@ public class GridMap extends View {
         for (int x = 1; x <= COL; x++)
             for (int y = 0; y < ROW; y++)
                 if (!cells[x][y].type.equals("image") && cells[x][y].getId().equals("-1")) {
+
                     canvas.drawRect(cells[x][y].startX, cells[x][y].startY, cells[x][y].endX, cells[x][y].endY, cells[x][y].paint);
                 } else {
                     Paint textPaint = new Paint();
-                    textPaint.setTextSize(20);
+                    if(cells[x][y].type.equals("image"))
+                        textPaint.setTextSize(20);
+                    else
+                        textPaint.setTextSize(10);
                     textPaint.setColor(Color.WHITE);
                     textPaint.setTextAlign(Paint.Align.CENTER);
                     canvas.drawRect(cells[x][y].startX, cells[x][y].startY, cells[x][y].endX, cells[x][y].endY, cells[x][y].paint);
@@ -137,6 +144,12 @@ public class GridMap extends View {
         showLog("Exiting drawIndividualCell");
     }
 
+    public void drawCellid(int x, int y, String id) {
+        showLog("Entering drawImageNumberCell");
+        cells[x][20-y].setId(id);
+        this.invalidate();
+        showLog("Exiting drawImageNumberCell");
+    }
     public void drawImageNumberCell(int x, int y, String id) {
         showLog("Entering drawImageNumberCell");
         cells[x][20-y].setType("image");
@@ -473,6 +486,7 @@ public class GridMap extends View {
         String type;
         String id = "-1";
 
+
         private Cell(float startX, float startY, float endX, float endY, Paint paint, String type) {
             this.startX = startX;
             this.startY = startY;
@@ -487,6 +501,7 @@ public class GridMap extends View {
             switch (type) {
                 case "obstacle":
                     this.paint = obstacleColor;
+
                     break;
                 case "robot":
                     this.paint = robotColor;
@@ -508,6 +523,7 @@ public class GridMap extends View {
                     break;
                 case "image":
                     this.paint = obstacleColor;
+
                 default:
                     showLog("setTtype default: " + type);
                     break;
@@ -581,31 +597,47 @@ public class GridMap extends View {
                 return true;
             }
             if (setObstacleStatus) {
+
                 this.setObstacleCoord(column, row);
                 this.invalidate();
                 return true;
             }
             if (setNorthObstacleStatus) {
+                obscounter ++;
                 if (checkUnexploredCell(column, row))
+                {
                     this.setObstacleDirectionCoordinate(column, row, "N");
+                    drawCellid(column, row, Integer.toString(obscounter));
+
+                }
                 this.invalidate();
                 return true;
             }
             if (setSouthObstacleStatus) {
-                if (checkUnexploredCell(column, row))
+                obscounter ++;
+                if (checkUnexploredCell(column, row)) {
                     this.setObstacleDirectionCoordinate(column, row, "S");
+                    drawCellid(column, row, Integer.toString(obscounter));
+
+                }
                 this.invalidate();
                 return true;
             }
             if (setEastObstacleStatus) {
-                if (checkUnexploredCell(column, row))
+                obscounter ++;
+                if (checkUnexploredCell(column, row)) {
                     this.setObstacleDirectionCoordinate(column, row, "E");
+                    drawCellid(column, row, Integer.toString(obscounter));
+                }
                 this.invalidate();
                 return true;
             }
             if (setWestObstacleStatus) {
-                if (checkUnexploredCell(column, row))
+                obscounter ++;
+                if (checkUnexploredCell(column, row)) {
                     this.setObstacleDirectionCoordinate(column, row, "W");
+                    drawCellid(column, row, Integer.toString(obscounter));
+                }
                 this.invalidate();
                 return true;
             }
@@ -759,6 +791,7 @@ public class GridMap extends View {
 
     public void resetMap() {
         showLog("Entering resetMap");
+        obscounter = 0;
         updateRobotAxis(1, 1, "None");
 
         this.toggleCheckedBtn("None");
