@@ -669,10 +669,16 @@ public class GridMap extends View {
                         for (int j = 0; j < obstacleDirectionCoord.size(); j++) {
                             if (obstacleDirectionCoord.get(j)[0].equals(prevObstacleDirectionCoord.get(i)[0]) && obstacleDirectionCoord.get(j)[1].equals(prevObstacleDirectionCoord.get(i)[1]))
                                 obstacleDirectionCoord.remove(j);
+                            cells[Integer.parseInt(prevObstacleDirectionCoord.get(i)[0])][20-Integer.parseInt(prevObstacleDirectionCoord.get(i)[1])].setId("");
                         }
                         if (column <= COL && row <= ROW)
                             this.setObstacleDirectionCoordinate(column, row, prevObstacleDirectionCoord.get(i)[2]);
+
+
+
+
                     }
+
                     prevObstacleDirectionCoord = new ArrayList<>();
                     setEditDirectionObstacleStatus = false;
 
