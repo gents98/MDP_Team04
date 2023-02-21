@@ -660,7 +660,7 @@ public class GridMap extends View {
         if (event.getAction() == MotionEvent.ACTION_UP && setEditStatus) {
             int column = (int) (event.getX() / cellSize);
             int row = this.convertRow((int) (event.getY() / cellSize));
-
+            String cellId;
             if (setEditDirectionObstacleStatus) {
                 if (column > COL || row > ROW || checkUnexploredCell(column, row)) {
 
@@ -669,8 +669,11 @@ public class GridMap extends View {
                         for (int j = 0; j < obstacleDirectionCoord.size(); j++) {
                             if (obstacleDirectionCoord.get(j)[0].equals(prevObstacleDirectionCoord.get(i)[0]) && obstacleDirectionCoord.get(j)[1].equals(prevObstacleDirectionCoord.get(i)[1]))
                                 obstacleDirectionCoord.remove(j);
+                            cellId = cells[Integer.parseInt(prevObstacleDirectionCoord.get(i)[0])][20-Integer.parseInt(prevObstacleDirectionCoord.get(i)[1])].getId();
                             cells[Integer.parseInt(prevObstacleDirectionCoord.get(i)[0])][20-Integer.parseInt(prevObstacleDirectionCoord.get(i)[1])].setId("");
+
                         }
+                        cells[Integer.parseInt(obstacleDirectionCoord.get(i)[0])][20-Integer.parseInt(obstacleDirectionCoord.get(i)[1])].setId("99");
                         if (column <= COL && row <= ROW)
                             this.setObstacleDirectionCoordinate(column, row, prevObstacleDirectionCoord.get(i)[2]);
 
