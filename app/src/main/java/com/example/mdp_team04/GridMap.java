@@ -829,7 +829,7 @@ public class GridMap extends View {
     public void updateMap() {
         showLog("Entering updateMap");
 
-        final String target = "PC";
+        final String target = "ALGO";
         String message;
         int[] startCoord = this.getStartCoord();
 
