@@ -872,22 +872,48 @@ public class GridMap extends View {
                 }
                 break;
             case "ObstacleImg":
-                int col = Integer.parseInt(input[2]) + 1;
-                int row = Integer.parseInt(input[3]) + 1;
-                for (int i = 0; i < obstacleDirectionCoord.size(); i++) {
-                    int obstacleDirectionCoordCol = 0;
-                    int obstacleDirectionCoordRow = 0;
-                    showLog(col + ", " + row + " == " + obstacleDirectionCoord.get(i)[0] + ", " + obstacleDirectionCoord.get(i)[1]);
-                    try {
-                        obstacleDirectionCoordCol = Integer.parseInt(obstacleDirectionCoord.get(i)[0]);
-                        obstacleDirectionCoordRow = Integer.parseInt(obstacleDirectionCoord.get(i)[1]);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (obstacleDirectionCoordCol ==  col && obstacleDirectionCoordRow == row) {
-                        drawImageNumberCell(col, row, input[4]);
-                    }
+//                int col = Integer.parseInt(input[2]) + 1;
+//                int row = Integer.parseInt(input[3]) + 1;
+//                for (int i = 0; i < obstacleDirectionCoord.size(); i++) {
+//                    int obstacleDirectionCoordCol = 0;
+//                    int obstacleDirectionCoordRow = 0;
+//                    showLog(col + ", " + row + " == " + obstacleDirectionCoord.get(i)[0] + ", " + obstacleDirectionCoord.get(i)[1]);
+//                    try {
+//                        obstacleDirectionCoordCol = Integer.parseInt(obstacleDirectionCoord.get(i)[0]);
+//                        obstacleDirectionCoordRow = Integer.parseInt(obstacleDirectionCoord.get(i)[1]);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                    if (obstacleDirectionCoordCol ==  col && obstacleDirectionCoordRow == row) {
+//                        drawImageNumberCell(col, row, input[4]);
+//                    }
+//                }
+                int col = curCoord[1];
+                int row = curCoord[0];
+//                for (int i = 0; i < obstacleDirectionCoord.size(); i++) {
+//                    int obstacleDirectionCoordCol = 0;
+//                    int obstacleDirectionCoordRow = 0;
+//                    showLog(col + ", " + row + " == " + obstacleDirectionCoord.get(i)[0] + ", " + obstacleDirectionCoord.get(i)[1]);
+//                    try {
+//                        obstacleDirectionCoordCol = Integer.parseInt(obstacleDirectionCoord.get(i)[0]);
+//                        obstacleDirectionCoordRow = Integer.parseInt(obstacleDirectionCoord.get(i)[1]);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                    if (obstacleDirectionCoordCol == col && obstacleDirectionCoordRow == row) {
+                if (robotDirection.equals("N")) {
+                    Log.d("x,y coord", "y:" + col + 3);
+                    drawImageNumberCell(row, col+3, input[2]);
+                } else if (robotDirection.equals("S")) {
+                    drawImageNumberCell(row, col-3, input[2]);
+                } else if (robotDirection.equals("E")) {
+                    drawImageNumberCell(row+3, col, input[2]);
+                } else if (robotDirection.equals("W")) {
+                    drawImageNumberCell(row-3, col, input[2]);
                 }
+      //  }
+    //}
+
                 break;
             case "w":
                 if(robotDirection.equals("N"))
