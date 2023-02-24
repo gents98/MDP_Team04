@@ -133,7 +133,7 @@ public class GridMap extends View {
                 } else {
                     Paint textPaint = new Paint();
                     if(cells[x][y].type.equals("image"))
-                        textPaint.setTextSize(20);
+                        textPaint.setTextSize(14);
                     else
                         textPaint.setTextSize(10);
                     textPaint.setColor(Color.WHITE);
