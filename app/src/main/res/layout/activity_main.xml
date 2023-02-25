@@ -22,7 +22,7 @@
             app:layout_constraintStart_toEndOf="@+id/mapView"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <TableLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center_vertical">
@@ -37,7 +37,7 @@
                         android:layout_height="wrap_content"
                         android:layout_column="1"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
+                        android:background="@drawable/rounded_background"
                         android:gravity="center"
                         android:text="X"
                         android:textAlignment="center"
@@ -50,7 +50,7 @@
                         android:layout_height="wrap_content"
                         android:layout_column="2"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
+                        android:background="@drawable/rounded_background"
                         android:gravity="center"
                         android:text="Y"
                         android:textAlignment="center"
@@ -104,7 +104,7 @@
             app:layout_constraintStart_toEndOf="@+id/mapView"
             app:layout_constraintTop_toBottomOf="@+id/xyTableCardView">
 
-            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <TableLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center_vertical">
@@ -119,7 +119,7 @@
                         android:layout_height="wrap_content"
                         android:layout_column="1"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
+                        android:background="@drawable/rounded_background"
                         android:gravity="center"
                         android:text="Timer"
                         android:textAlignment="center"
@@ -171,7 +171,7 @@
             app:layout_constraintStart_toEndOf="@+id/mapView"
             app:layout_constraintTop_toBottomOf="@+id/timerCardView">
 
-            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <TableLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center_vertical">
@@ -185,7 +185,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
+                        android:background="@drawable/rounded_background"
                         android:gravity="center"
                         android:text="Type"
                         android:textAlignment="center"
@@ -238,11 +238,12 @@
                     android:layout_height="fill_parent">
 
                     <TextView
+
                         android:id="@+id/statusText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
+                        android:background="@drawable/rounded_background"
                         android:gravity="center"
                         android:text="Status"
                         android:textAlignment="center"

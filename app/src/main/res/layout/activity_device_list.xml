@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:gravity="center|top"
         android:text="@string/str_paired_devices"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:background="@drawable/rounded_background"/>
 
     <ListView
         android:id="@+id/list_paired_devices"

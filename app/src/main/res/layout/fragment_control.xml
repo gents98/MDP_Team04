@@ -151,13 +151,13 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="68dp"
         android:layout_weight="1"
-        android:background="@drawable/border"
         android:gravity="center"
         android:text="Movement Status"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/northEastImageBtn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/rounded_background"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

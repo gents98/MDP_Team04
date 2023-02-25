@@ -124,7 +124,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.438"
         app:layout_constraintStart_toEndOf="@+id/setEditToggleBtn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:radius="100dp" />
 
     <Button
         android:id="@+id/resetMapBtn"
