@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
         startTimerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tempMsg = "PC,";
+                tempMsg = "STM,";
                 if (BluetoothUtils.getState() == BluetoothUtils.STATE_CONNECTED) {
                     if (startTimerBtn.getText().equals("STOP")) {
                         if (exploreTypeBtn.getText().equals("Image Exploration")) {

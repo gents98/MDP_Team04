@@ -462,16 +462,16 @@ public class GridMap extends View {
             rect = new RectF(col * cellSize, row * cellSize, (col + 1) * cellSize, (row + 1) * cellSize);
             switch (this.getRobotDirection()) {
                 case "N":
-                    robotDirectionBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_robot_north);
+                    robotDirectionBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f1_north);
                     break;
                 case "E":
-                    robotDirectionBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_robot_east);
+                    robotDirectionBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f1_east);
                     break;
                 case "S":
-                    robotDirectionBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_robot_south);
+                    robotDirectionBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f1_south);
                     break;
                 case "W":
-                    robotDirectionBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_robot_west);
+                    robotDirectionBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f1_west);
                     break;
                 default:
                     break;
@@ -854,7 +854,8 @@ public class GridMap extends View {
             BluetoothUtils.write(message.getBytes());
             delay();
         }
-
+        message = "ALGO,Obstacle,finish";
+        BluetoothUtils.write(message.getBytes());
         showLog("Exiting updateMap");
     }
 
