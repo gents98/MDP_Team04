@@ -459,7 +459,7 @@ public class GridMap extends View {
         for (int i = 0; i < curCoord.length ; i++) {
             int col = curCoord[0];
             int row = convertRow(curCoord[1]);
-            rect = new RectF(col * cellSize, row * cellSize, (col + 1) * cellSize, (row + 1) * cellSize);
+            rect = new RectF((col-1) * cellSize, (row-1) * cellSize, (col + 2) * cellSize, (row + 2) * cellSize);
             switch (this.getRobotDirection()) {
                 case "N":
                     robotDirectionBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f1_north);
