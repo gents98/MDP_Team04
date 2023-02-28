@@ -47,6 +47,7 @@ public class GridMap extends View {
     private Paint textSize = new Paint();
 
     private int obscounter = 0;
+    int idcounter=0;
     private static String robotDirection = "None";
     private static int[] startCoord = new int[]{-1, -1};
     private static int[] curCoord = new int[]{-1, -1};
@@ -77,7 +78,7 @@ public class GridMap extends View {
     private static float cellSize;
     private static Cell[][] cells;
     String cellId;
-
+    String[] order;
     private boolean mapDrawn = false;
 
 
@@ -803,6 +804,8 @@ public class GridMap extends View {
     public void resetMap() {
         showLog("Entering resetMap");
         obscounter = 0;
+        idcounter =0;
+        obstacleDirectionCoord = new ArrayList<>();
         updateRobotAxis(1, 1, "None");
 
         this.toggleCheckedBtn("None");
@@ -872,7 +875,25 @@ public class GridMap extends View {
                     }
                 }
                 break;
+            case "ObstacleOrder":
+
+                order = input[2].split(""); // 54321
+
+
+                break;
             case "ObstacleImg":
+                try {
+                int index = Integer.parseInt(order[idcounter]); // index of obstacle array to retrieve. 1 onwards
+                int col = Integer.parseInt(obstacleDirectionCoord.get(index-1)[0]);  // retrieve obstacle index's col
+                int row = Integer.parseInt(obstacleDirectionCoord.get(index-1)[1]);
+
+                    drawImageNumberCell(col, row, input[2]);
+                }
+                catch (Exception e){
+            }
+
+                idcounter ++;
+
 //                int col = Integer.parseInt(input[2]) + 1;
 //                int row = Integer.parseInt(input[3]) + 1;
 //                for (int i = 0; i < obstacleDirectionCoord.size(); i++) {
@@ -889,8 +910,8 @@ public class GridMap extends View {
 //                        drawImageNumberCell(col, row, input[4]);
 //                    }
 //                }
-                int col = curCoord[1];
-                int row = curCoord[0];
+//                int col = curCoord[1];
+//                int row = curCoord[0];
 //                for (int i = 0; i < obstacleDirectionCoord.size(); i++) {
 //                    int obstacleDirectionCoordCol = 0;
 //                    int obstacleDirectionCoordRow = 0;
@@ -902,18 +923,19 @@ public class GridMap extends View {
 //                        e.printStackTrace();
 //                    }
 //                    if (obstacleDirectionCoordCol == col && obstacleDirectionCoordRow == row) {
-                if (robotDirection.equals("N")) {
-                    Log.d("x,y coord", "y:" + col + 3);
-                    drawImageNumberCell(row, col+3, input[2]);
-                } else if (robotDirection.equals("S")) {
-                    drawImageNumberCell(row, col-3, input[2]);
-                } else if (robotDirection.equals("E")) {
-                    drawImageNumberCell(row+3, col, input[2]);
-                } else if (robotDirection.equals("W")) {
-                    drawImageNumberCell(row-3, col, input[2]);
-                }
+//                if (robotDirection.equals("N")) {
+//                    Log.d("x,y coord", "y:" + col + 3);
+//                    drawImageNumberCell(row, col+3, input[2]);
+//                } else if (robotDirection.equals("S")) {
+//                    drawImageNumberCell(row, col-3, input[2]);
+//                } else if (robotDirection.equals("E")) {
+//                    drawImageNumberCell(row+3, col, input[2]);
+//                } else if (robotDirection.equals("W")) {
+//                    drawImageNumberCell(row-3, col, input[2]);
+//                }
       //  }
     //}
+
 
                 break;
             case "w":
@@ -943,21 +965,75 @@ public class GridMap extends View {
                 if(robotDirection.equals("N"))      //if direction now is north
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+3, curCoord[1]+2, "E");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    //setCurCoord(curCoord[0]+3, curCoord[1]+2, "E");
                 }
                 else if (robotDirection.equals("E"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+2, curCoord[1]-3, "S");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "S");
+
+                    //setCurCoord(curCoord[0]+2, curCoord[1]-3, "S");
                 }
                 else if (robotDirection.equals("W"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-2, curCoord[1]+3, "N");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    //setCurCoord(curCoord[0]-2, curCoord[1]+3, "N");
                 }
                 else if (robotDirection.equals("S")) {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-3, curCoord[1]-2, "W");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "W");
+                    //setCurCoord(curCoord[0]-3, curCoord[1]-2, "W");
                 }
                 break;
             case "s":
@@ -986,22 +1062,251 @@ public class GridMap extends View {
                 if(robotDirection.equals("N"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-3, curCoord[1]+2, "W");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "W");
+
+                    //setCurCoord(curCoord[0]-3, curCoord[1]+2, "W");
                 }
                 else if (robotDirection.equals("E"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+2, curCoord[1]+3, "N");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    //setCurCoord(curCoord[0]+2, curCoord[1]+3, "N");
                 }
                 else if (robotDirection.equals("W"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-2, curCoord[1]-3, "S");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                 //   setCurCoord(curCoord[0]-2, curCoord[1]-1, "S");
                 }
                 else if (robotDirection.equals("S"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+3, curCoord[1]-2, "E");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                 //   setCurCoord(curCoord[0]+3, curCoord[1]-2, "E");
+                }
+                break;
+            case "q": //"reverse left"
+                if(robotDirection.equals("N"))
+                {
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+                  //  setCurCoord(curCoord[0]-3, curCoord[1]-5, "E");
+                }
+                else if (robotDirection.equals("E"))
+                {
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "S");
+                    //setCurCoord(curCoord[0]-5, curCoord[1]-3, "S");
+                }
+                else if (robotDirection.equals("W"))
+                {
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+                    //setCurCoord(curCoord[0]+5, curCoord[1]-3, "N");
+                }
+                else if (robotDirection.equals("S"))
+                {
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "W");
+                    //setCurCoord(curCoord[0]+3, curCoord[1]+5, "W");
+                }
+                break;
+            case "e": //"reverse right"
+                if(robotDirection.equals("N"))
+                {
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    //setCurCoord(curCoord[0]+3, curCoord[1]-5, "W");
+                }
+                else if (robotDirection.equals("E"))
+                {
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    // setCurCoord(curCoord[0]-3, curCoord[1]-5, "N");
+                }
+                else if (robotDirection.equals("W"))
+                {
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+3, curCoord[1]+5, "S");
+                }
+                else if (robotDirection.equals("S"))
+                {
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-3, curCoord[1]+5, "E");
                 }
                 break;
             default:

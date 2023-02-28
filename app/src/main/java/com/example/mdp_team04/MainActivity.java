@@ -126,11 +126,11 @@ public class MainActivity extends AppCompatActivity {
                         inputArray = inputBufferStatus.split("\\s*,\\s*");
                         inputArrayAdditional = inputBufferStatusExtra.split("\\s*,\\s*");
                     }
-                    if (inputBufferStatus.startsWith("AN") && running) {
+                    if (inputBufferStatus.startsWith("AN")) {
                         handleMessageRead(inputBufferStatus, inputArray);
                         FragMsg.addToAdapterReceivedMessages(connectedDevice + ": ", inputBufferStatus);
                     }
-                    if (inputBufferStatusExtra != null && inputBufferStatusExtra.startsWith("AN") && running) {
+                    if (inputBufferStatusExtra != null && inputBufferStatusExtra.startsWith("AN")) {
                         handleMessageRead(inputBufferStatusExtra, inputArrayAdditional);
                         FragMsg.addToAdapterReceivedMessages(connectedDevice + ": ", inputBufferStatusExtra);
                     }
