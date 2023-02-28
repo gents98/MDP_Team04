@@ -1268,45 +1268,89 @@ public class GridMap extends View {
                     setCurCoord(curCoord[0]+1, curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "W");
                     //setCurCoord(curCoord[0]+3, curCoord[1]-5, "W");
                 }
                 else if (robotDirection.equals("E"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
                     // setCurCoord(curCoord[0]-3, curCoord[1]-5, "N");
                 }
                 else if (robotDirection.equals("W"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+3, curCoord[1]+5, "S");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "S");
+                    //setCurCoord(curCoord[0]+3, curCoord[1]+5, "S");
                 }
                 else if (robotDirection.equals("S"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-3, curCoord[1]+5, "E");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0, curCoord[1]]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+                    //setCurCoord(curCoord[0]-3, curCoord[1]+5, "E");
                 }
                 break;
             default:
