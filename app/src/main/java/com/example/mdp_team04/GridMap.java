@@ -1212,7 +1212,7 @@ public class GridMap extends View {
                     setCurCoord(curCoord[0], curCoord[1]-1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0+1], curCoord[1], "E");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]+1, curCoord[1], "E");
