@@ -961,14 +961,14 @@ public class GridMap extends View {
                 }
 
                 break;
-            case "x":       //robot wants to move right "east"
+            case "x":       //robot wants to move sharp right "east"
                 if(robotDirection.equals("N"))      //if direction now is north
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]+1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]+1, curCoord[1], "E");
@@ -976,8 +976,8 @@ public class GridMap extends View {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]+1, curCoord[1], "E");
 
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+//                    setOldRobotCoord(curCoord[0], curCoord[1]);
+//                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
 
                     //setCurCoord(curCoord[0]+3, curCoord[1]+2, "E");
                 }
@@ -986,8 +986,6 @@ public class GridMap extends View {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]+1, curCoord[1], "N");
 
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]-1, "E");
@@ -1006,22 +1004,17 @@ public class GridMap extends View {
                     setCurCoord(curCoord[0]-1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]+1, "E");
 
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]+1, "N");
                     //setCurCoord(curCoord[0]-2, curCoord[1]+3, "N");
                 }
                 else if (robotDirection.equals("S")) {
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
-
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]-1, "N");
 
@@ -1058,14 +1051,12 @@ public class GridMap extends View {
                     setCurCoord(curCoord[0], curCoord[1]+1, "S");
                 }
                 break;
-            case "z": //"left"
+            case "z": //sharp left
                 if(robotDirection.equals("N"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]+1, "N");
 
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]-1, curCoord[1], "E");
@@ -1083,8 +1074,6 @@ public class GridMap extends View {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]+1, curCoord[1], "N");
 
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]+1, "E");
@@ -1101,8 +1090,6 @@ public class GridMap extends View {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]-1, curCoord[1], "N");
 
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]-1, "E");
@@ -1111,7 +1098,7 @@ public class GridMap extends View {
                     setCurCoord(curCoord[0], curCoord[1]-1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "S");
                  //   setCurCoord(curCoord[0]-2, curCoord[1]-1, "S");
                 }
                 else if (robotDirection.equals("S"))
@@ -1119,8 +1106,6 @@ public class GridMap extends View {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]-1, "N");
 
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]+1, curCoord[1], "E");
@@ -1133,23 +1118,17 @@ public class GridMap extends View {
                  //   setCurCoord(curCoord[0]+3, curCoord[1]-2, "E");
                 }
                 break;
-            case "q": //"reverse left"
+            case "a": //wide left
                 if(robotDirection.equals("N"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]-1, curCoord[1], "E");
@@ -1159,24 +1138,57 @@ public class GridMap extends View {
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "W");
                   //  setCurCoord(curCoord[0]-3, curCoord[1]-5, "E");
                 }
                 else if (robotDirection.equals("E"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
 
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    //setCurCoord(curCoord[0]-5, curCoord[1]-3, "S");
+                }
+                else if (robotDirection.equals("W"))
+                {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]-1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]-1, curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]-1, "E");
@@ -1186,51 +1198,21 @@ public class GridMap extends View {
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]-1, "S");
-                    //setCurCoord(curCoord[0]-5, curCoord[1]-3, "S");
-                }
-                else if (robotDirection.equals("W"))
-                {
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
                     //setCurCoord(curCoord[0]+5, curCoord[1]-3, "N");
                 }
                 else if (robotDirection.equals("S"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+                    setCurCoord(curCoord[0+1], curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]+1, curCoord[1], "E");
@@ -1239,27 +1221,24 @@ public class GridMap extends View {
                     setCurCoord(curCoord[0]+1, curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "W");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
                     //setCurCoord(curCoord[0]+3, curCoord[1]+5, "W");
                 }
                 break;
-            case "e": //"reverse right"
+            case "d": //wide right
                 if(robotDirection.equals("N"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]+1, curCoord[1], "E");
@@ -1268,25 +1247,25 @@ public class GridMap extends View {
                     setCurCoord(curCoord[0]+1, curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "W");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
                     //setCurCoord(curCoord[0]+3, curCoord[1]-5, "W");
                 }
                 else if (robotDirection.equals("E"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]-1, "E");
@@ -1295,25 +1274,25 @@ public class GridMap extends View {
                     setCurCoord(curCoord[0], curCoord[1]-1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]-1, "S");
                     // setCurCoord(curCoord[0]-3, curCoord[1]-5, "N");
                 }
                 else if (robotDirection.equals("W"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "E");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]+1, "E");
@@ -1322,25 +1301,25 @@ public class GridMap extends View {
                     setCurCoord(curCoord[0], curCoord[1]+1, "E");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "S");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
                     //setCurCoord(curCoord[0]+3, curCoord[1]+5, "S");
                 }
                 else if (robotDirection.equals("S"))
                 {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0, curCoord[1]]+1, "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
-
-                    setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "E");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]-1, curCoord[1], "E");
@@ -1350,6 +1329,12 @@ public class GridMap extends View {
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "E");
+
+                    setOldRobotCoord(curCoord[0], curCoord[1]);
+                    setCurCoord(curCoord[0]-1, curCoord[1], "W");
                     //setCurCoord(curCoord[0]-3, curCoord[1]+5, "E");
                 }
                 break;
