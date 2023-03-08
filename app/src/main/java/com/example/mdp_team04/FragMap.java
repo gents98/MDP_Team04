@@ -17,7 +17,7 @@ import android.widget.ToggleButton;
 public class FragMap extends Fragment {
     private static final String TAG = "MapFragment";
 
-    Button resetMapBtn, updateMapBtn;
+    Button resetMapBtn, updateMapBtn, loadMapBtn, saveMapBtn;
     ToggleButton setStartPointToggleBtn, setEditToggleBtn, clearToggleBtn, northObstacleToggleBtn, southObstacleToggleBtn, eastObstacleToggleBtn, westObstacleToggleBtn;
     GridMap gridMap;
 
@@ -31,6 +31,8 @@ public class FragMap extends Fragment {
 
         gridMap = MainActivity.getGridMap();
 
+        loadMapBtn = root.findViewById(R.id.loadMapBtn);
+        saveMapBtn = root.findViewById(R.id.saveMapBtn);
         updateMapBtn = root.findViewById(R.id.updateMapBtn);
         resetMapBtn = root.findViewById(R.id.resetMapBtn);
         setStartPointToggleBtn = root.findViewById(R.id.setStartPointToggleBtn);
@@ -61,6 +63,23 @@ public class FragMap extends Fragment {
                 gridMap.resetMap();
             }
         });
+        saveMapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showLog("Clicked saveMapBtn");
+                showToast("saving map...");
+                gridMap.saveMap();
+            }
+        });
+        loadMapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showLog("Clicked loadMapBtn");
+                showToast("loading map...");
+                gridMap.loadMap();
+            }
+        });
+
 
         setEditToggleBtn.setOnClickListener(new View.OnClickListener() {
             @Override

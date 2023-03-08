@@ -54,6 +54,9 @@ public class GridMap extends View {
     private static int[] oldCoord = new int[]{-1, -1};
     private static ArrayList<int[]> obstacleCoord = new ArrayList<>();
     private static ArrayList<String[]> obstacleDirectionCoord = new ArrayList<>();
+
+    private static ArrayList<String[]> saveObstacleDirectionCoord = new ArrayList<>();
+
     private static ArrayList<String[]> prevObstacleDirectionCoord = new ArrayList<>();
     private static int[] prevStartCoord = new int[]{-1,-1};
     private static String prevRobotDirection;
@@ -831,6 +834,35 @@ public class GridMap extends View {
         showLog("Exiting resetMap");
         this.invalidate();
     }
+
+    public void saveMap(){
+        showLog("Entering saveMap");
+        saveObstacleDirectionCoord = obstacleDirectionCoord;
+    }
+
+    public void loadMap(){
+        int col;
+        int row;
+
+        showLog("Entering loadMap");
+        //obstacleDirectionCoord = saveObstacleDirectionCoord;
+
+        for (int i = 0; i < saveObstacleDirectionCoord.size(); i++) {
+            obscounter ++;
+            col = Integer.parseInt(saveObstacleDirectionCoord.get(i)[0]);
+            row = Integer.parseInt(saveObstacleDirectionCoord.get(i)[1]);
+            if (checkUnexploredCell(col, row))
+            {
+                this.setObstacleDirectionCoordinate(col, row, saveObstacleDirectionCoord.get(i)[2]);
+                drawCellid(col, row, Integer.toString(obscounter));
+
+            }
+            this.invalidate();
+            }
+
+        }
+
+
 
     public void updateMap() {
         showLog("Entering updateMap");
