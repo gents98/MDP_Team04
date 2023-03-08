@@ -1449,9 +1449,9 @@ public class GridMap extends View {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]-1, "N");
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
+                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
 
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
@@ -1476,9 +1476,9 @@ public class GridMap extends View {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]-1, curCoord[1], "N");
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
+                    setCurCoord(curCoord[0]-1, curCoord[1], "N");
 
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
@@ -1500,9 +1500,9 @@ public class GridMap extends View {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0]+1, curCoord[1], "N");
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0], curCoord[1]-1, "N");
+                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
 
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
@@ -1524,9 +1524,9 @@ public class GridMap extends View {
                     setOldRobotCoord(curCoord[0], curCoord[1]);
                     setCurCoord(curCoord[0], curCoord[1]+1, "N");
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
                     setOldRobotCoord(curCoord[0], curCoord[1]);
-                    setCurCoord(curCoord[0]+1, curCoord[1], "N");
+                    setCurCoord(curCoord[0], curCoord[1]+1, "N");
 
 
                     setOldRobotCoord(curCoord[0], curCoord[1]);
