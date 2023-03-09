@@ -655,7 +655,7 @@ public class GridMap extends View {
                 cells[column][20 - row].setType("unexplored");
                 for (int i = 0; i < obstacleDirectionCoord.size(); i++) {
                     if (obstacleDirectionCoord.get(i)[0].equals(Integer.toString(column)) && obstacleDirectionCoord.get(i)[1].equals(Integer.toString(row))) {
-                        cells[Integer.parseInt(obstacleDirectionCoord.get(i)[0])][20 - Integer.parseInt(obstacleDirectionCoord.get(i)[1])].setId("");
+                        //cells[Integer.parseInt(obstacleDirectionCoord.get(i)[0])][20 - Integer.parseInt(obstacleDirectionCoord.get(i)[1])].setId("");
                         obstacleDirectionCoord.remove(i);
 
                     }
