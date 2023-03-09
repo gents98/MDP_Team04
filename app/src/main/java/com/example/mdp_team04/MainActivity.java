@@ -148,17 +148,17 @@ public class MainActivity extends AppCompatActivity {
     });
 
     private void handleMessageRead(String inputBuffer, String[] inputArray) {
-        if (inputBuffer.contains("StopIE") && running) {
+        if (inputBuffer.contains("StopIE") ) {
             startTimer.stop();
             running = false;
             startTimerBtn.toggle();
-            statusTextView.setText("IE Running");
+            statusTextView.setText("IE Stopped");
             showToast("IE Running");
-        } else if (inputBuffer.contains("StopFP") && running) {
+        } else if (inputBuffer.contains("StopFP")) {
             startTimer.stop();
             running = false;
             startTimerBtn.toggle();
-            statusTextView.setText("FP Running");
+            statusTextView.setText("FP Stopped");
         } else {
             gridMap.handleMessageReceive(inputArray);
         }

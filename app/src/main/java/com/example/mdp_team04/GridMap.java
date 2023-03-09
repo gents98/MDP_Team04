@@ -913,6 +913,7 @@ public class GridMap extends View {
             case "ObstacleOrder":
 
                 order = input[2].split(""); // 54321
+                MainActivity.statusTextView.setText("Obs Order Received");
 
 
                 break;
@@ -921,7 +922,9 @@ public class GridMap extends View {
                 int index = Integer.parseInt(order[idcounter]); // index of obstacle array to retrieve. 1 onwards
                 int col = Integer.parseInt(obstacleDirectionCoord.get(index-1)[0]);  // retrieve obstacle index's col
                 int row = Integer.parseInt(obstacleDirectionCoord.get(index-1)[1]);
-
+                if (input[2].equals("99"))
+                    drawImageNumberCell(col, row, "");
+                else
                     drawImageNumberCell(col, row, input[2]);
                 }
                 catch (Exception e){
